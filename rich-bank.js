@@ -5,15 +5,15 @@ const accounts = [
 
 function getAccountById (id)
 {
+	if (!Number.isInteger(id) || id <= 0) // Check if ID is a positive integer
+		{
+			throw new Error("Invalid value for account ID: The ID must be a positive integer.");
+		}
 	for (const account of accounts)
 	{
 		if (account.id === id) // Added "===" to check if account ID is exactly equal to the given ID
 		{
 			return account;
-		}
-		if (!Number.isInteger(id) || id <= 0) // Check if ID is a positive integer
-		{
-			throw new Error("Invalid value for account ID: The ID must be a positive integer.");
 		}
 	}
 }
